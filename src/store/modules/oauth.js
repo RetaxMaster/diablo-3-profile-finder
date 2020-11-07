@@ -32,6 +32,8 @@ export default {
       //  2 - Si va OK, guardar el token en 'accessToken'. Continuar el flujo normal
       //  3 - Si hay errror, limpiar el token de 'accessToken', mostrar log del error
 
+      commit('loading/SET_LOADING', true, { root: true })
+
       // Paso 1
       oauth.getToken()
         .then(({ data }) => {
@@ -44,8 +46,7 @@ export default {
           console.log('Error OAuth: ', err)
         })
         .finally(() => {
-          // Por ahora no hacemos nada más aquí
-          console.log('Done!')
+          commit('loading/SET_LOADING', false, { root: true })
         })
     }
 
