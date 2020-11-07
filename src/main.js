@@ -12,7 +12,22 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({
+
+  methods: {
+
+    init () {
+      store.dispatch('oauth/getToken', null, { root: true })
+    }
+
+  },
+
+  // Hook created
+  created () {
+    this.init()
+  },
+
   router,
   store,
   render: h => h(App)
+
 }).$mount('#app')
