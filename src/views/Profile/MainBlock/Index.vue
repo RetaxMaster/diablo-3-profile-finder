@@ -6,6 +6,8 @@
 
         <TopHeroes v-if="hasHeroes" :heroes="topHeroes"/>
 
+        <HeroesList v-if="hasHeroesList" :heroes="heroesList"/>
+
     </div>
 
     <div class="grid-item item-right">
@@ -19,12 +21,13 @@
 <script>
 
 import TopHeroes from '@/views/Profile/MainBlock/TopHeroes/Index'
+import HeroesList from './HeroesList/Index'
 
 export default {
 
   name: 'MainBlock',
 
-  components: { TopHeroes },
+  components: { TopHeroes, HeroesList },
 
   props: {
     profileData: {
@@ -43,6 +46,16 @@ export default {
     // Devolvemos los 3 primeros
     topHeroes () {
       return this.profileData.heroes.slice(0, 3)
+    },
+
+    // ¿Hay más de tres elementos en el array?
+    hasHeroesList () {
+      return this.profileData.heroes.length > 3
+    },
+
+    // En caso afirmativo, dame todos los elementos del array sin contar los tres primeros. Seguimos con la otra propiedad computada
+    heroesList () {
+      return this.profileData.heroes.slice(3, this.profileData.heroes.length)
     }
 
   }

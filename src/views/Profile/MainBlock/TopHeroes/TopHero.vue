@@ -22,7 +22,7 @@
 
         <small class="elite-kills">
           <!-- Jefes (Élites) asesinados -->
-          <span class="text-monospace">{{ hero.kills.elites }}</span>
+          <span class="text-monospace">{{ hero.kills.elites | formatNumber }}</span>
           Elite kills
         </small>
 
@@ -37,9 +37,16 @@
 </template>
 
 <script>
+
+import { formatNumber } from '@/filters/numeral'
+
 export default {
 
   name: 'TopHero',
+
+  filters: {
+    formatNumber
+  },
 
   computed: {
     heroClass () {
