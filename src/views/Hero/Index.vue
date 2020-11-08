@@ -9,15 +9,20 @@
       <!-- 12 columnas de 'xs' -> 'md', 8 columnas desde 'lg' hacia arriba  -->
       <!-- En 'lg' orden 2 -->
       <b-col md="12" lg="8" order-lg="2">
+
         <BaseLoading v-if="isLoadingItems"/>
+        <HeroItems v-if="items" :items="items"/>
+
       </b-col>
 
       <!-- 12 columnas de 'xs' -> 'md', 4 columnas desde 'lg' hacia arriba -->
       <!-- En 'lg' orden 1 -->
       <b-col md="12" lg="4" order-lg="1">
         <template v-if="hero">
+
           <HeroAttributes :attributes="detailStats"/>
           <HeroSkills :skills="hero.skills"/>
+
         </template>
       </b-col>
 
@@ -34,7 +39,7 @@ import BaseLoading from '@/components/BaseLoading'
 import { getApiHero, getApiDetailedHeroItems } from '@/api/search'
 import HeroDetailHeader from './HeroDetailHeader'
 import HeroAttributes from './HeroAttributes/Index'
-/* import HeroItems from './HeroItems/Index' */
+import HeroItems from './HeroItems/Index'
 import HeroSkills from './HeroSkills/Index'
 
 export default {
@@ -43,7 +48,7 @@ export default {
 
   mixins: [setError],
 
-  components: { BaseLoading, HeroDetailHeader, HeroAttributes, HeroSkills },
+  components: { BaseLoading, HeroDetailHeader, HeroAttributes, HeroSkills, HeroItems },
 
   data () {
     return {
