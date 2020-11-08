@@ -1,11 +1,11 @@
 <template>
   <div id="app">
 
-    <LoadLayout v-show="isLoading">
+    <LoadLayout v-if="isLoading">
       <BaseLoading/>
     </LoadLayout>
 
-    <MainLayout v-show="!isLoading"/>
+    <MainLayout v-else/>
 
   </div>
 </template>
