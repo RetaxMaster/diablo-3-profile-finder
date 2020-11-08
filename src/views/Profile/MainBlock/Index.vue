@@ -13,7 +13,9 @@
     </div>
 
     <div class="grid-item item-right">
-      <h1>Derecha</h1>
+
+      <PlayerStats :stats="statsData"/>
+
     </div>
 
   </div>
@@ -25,12 +27,13 @@
 import TopHeroes from '@/views/Profile/MainBlock/TopHeroes/Index'
 import HeroesList from './HeroesList/Index'
 import ProgressList from './ProgressList/Index'
+import PlayerStats from './PlayerStats/Index'
 
 export default {
 
   name: 'MainBlock',
 
-  components: { TopHeroes, HeroesList, ProgressList },
+  components: { TopHeroes, HeroesList, ProgressList, PlayerStats },
 
   props: {
     profileData: {
@@ -59,6 +62,11 @@ export default {
     // En caso afirmativo, dame todos los elementos del array sin contar los tres primeros. Seguimos con la otra propiedad computada
     heroesList () {
       return this.profileData.heroes.slice(3, this.profileData.heroes.length)
+    },
+
+    statsData () {
+      const { paragonLevel, kills, timePlayed } = this.profileData
+      return { paragonLevel, kills, timePlayed }
     }
 
   }
