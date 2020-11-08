@@ -12,7 +12,7 @@
     >
 
       <!-- v-slot:nombre-del-slot(nombre del campo que hemos definido en la variable fields)="variable a como queremos obtener esos ítems emitidos por el scoped slot" -->
-      <template #:ell(name)="data">
+      <template #cell(name)="data">
         <HeroIco :hero="data.item"/>
       </template>
 
