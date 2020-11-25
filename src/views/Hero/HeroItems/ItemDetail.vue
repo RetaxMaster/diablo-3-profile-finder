@@ -11,7 +11,7 @@
             <!-- Nombre del objeto -->
             <p class="text-muted">{{ item.name }}</p>
             <!-- Imagen correspondiente al objeto -->
-            <img :src="itemUrl" :alt="item.slotName + ' ' + item.name ">
+            <cors-image :src="itemUrl" :alt="item.slotName + ' ' + item.name" />
           </div>
         </div>
 

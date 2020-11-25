@@ -4,7 +4,7 @@
       <!-- Slot (identificador de skill) -->
       <span class="slot" :class="slotClass"/>
       <!-- La imagen · Skill URL -->
-      <img :src="skillUrl" :alt="skill.name">
+      <cors-image :src="skillUrl" :alt="skill.name" />
     </div>
 
     <div>
